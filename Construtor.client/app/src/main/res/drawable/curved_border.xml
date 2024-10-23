@@ -1,0 +1,11 @@
+
+    <!-- res/drawable/curved_border.xml -->
+    <shape xmlns:android="http://schemas.android.com/apk/res/android">
+        <solid android:color="@color/black"/>
+        <path
+            android:fillColor="@color/white"
+            android:pathData="M 0,50 Q 50,0 100,50 L 100,100 L 0,100 Z"
+            android:strokeWidth="0dp"
+            android:scaleX="50"
+            android:scaleY="5" />
+    </shape>
