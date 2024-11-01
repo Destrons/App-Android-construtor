@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Aplicativo de construção para clientes</string>
+    <string name="logo_image">Logo-Image</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Senha</string>
+    <string name="txt_button_login">Entrar</string>
+
 </resources>
