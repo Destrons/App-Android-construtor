@@ -4,5 +4,8 @@
     <string name="hint_email">E-mail</string>
     <string name="hint_password">Senha</string>
     <string name="txt_button_login">Entrar</string>
+    <string name="txt_cadastro">Não possui conta? Cadastre-se aqui!</string>
+    <string name="txt_bem_vindo_1">Bem Vindo(a)!</string>
+    <string name="txt_bem_vindo_2">O Profissional Certo na Palma da Sua Mão</string>
 
 </resources>

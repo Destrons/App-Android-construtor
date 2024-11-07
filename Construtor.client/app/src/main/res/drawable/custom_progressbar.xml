@@ -1,0 +1,19 @@
+<!-- res/drawable/custom_progress_drawable.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Sombra de fundo -->
+    <item android:right="4dp" android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#D2691E" /> <!-- Cor Chocolate para a sombra -->
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+
+    <!-- Cor principal da ProgressBar -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#A0522D" /> <!-- Cor Sienna para a ProgressBar -->
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</layer-list>
