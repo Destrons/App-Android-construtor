@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <!-- Cor de Fundo Vermelha -->
+    <solid android:color="@color/Chocolate" />
+
+    <!-- Borda Preta -->
+    <stroke
+        android:width="2dp"
+        android:color="@android:color/black" />
+
+    <!-- Tamanho do círculo -->
+    <size
+        android:width="50dp"
+        android:height="50dp" />
+</shape>
