@@ -1,13 +1,16 @@
 package Construtor.client
 
-import android.app.Activity
+import Construtor.client.databinding.ActivityMainBinding
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,25 +18,59 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(LayoutInflater)
-        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         supportActionBar?.hide()
         window.statusBarColor = Color.parseColor("#FFFFFF")
-        binding.btEntrar.setOnClickListener {
 
-            Val email = binding.editEmail.text.toString()
-            Val senha = binding.editEmail.text.toString()
+        binding.bttLogin.setOnClickListener {
+
+            val email = binding.editEmail.text.toString()
+            val senha = binding.editSenha.text.toString()
+
 
             when{
-                email.isEmpty()
+                email.isEmpty() -> {
+                    binding.editEmail.error = "Preencha o E-mail"
+                }
+                senha.isEmpty() -> {
+                    binding.editSenha.error = "Preencha a Senha!"
+                }
+                !email.contains("gmail.com") -> {
+                    val snackbar = Snackbar.make(binding.root, "E-mail inválido", Snackbar.LENGTH_SHORT)
+                    snackbar.show()
+                }
+                senha.length <= 5 -> {
+                    val snackbar = Snackbar.make(binding.root, "A senha precisa ter pelo menos 6 caracteres!", Snackbar.LENGTH_SHORT)
+                    snackbar.show()
+                }
+                else -> {
+                    login(it)
+                }
             }
         }
+    }
+
+    private fun login(view: View) {
+        val progressBar = binding.progressbar
+        progressBar.visibility = View.VISIBLE
+
+        binding.bttLogin.isEnabled = false
+        binding.bttLogin.setTextColor(Color.parseColor("#FFFFFF"))
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            navegarTelaPrincipal()
+            val snackbar = Snackbar.make(binding.root, "Login efetuado com sucesso", Snackbar.LENGTH_SHORT)
+            snackbar.show()
+        }, 3000)
+    }
+
+    private fun navegarTelaPrincipal(){
+        val intent =  Intent(this, TelaPrincipal::class.java)
+        startActivity(intent)
+        finish()
     }
 }
