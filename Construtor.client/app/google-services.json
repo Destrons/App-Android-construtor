@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "538925034240",
+    "project_id": "app-android-construtor-15aac",
+    "storage_bucket": "app-android-construtor-15aac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538925034240:android:c6144d0182a32dd130a1e5",
+        "android_client_info": {
+          "package_name": "construtor.client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538925034240-bjjc6eghsef323o1l2linc6hd5j0e0ho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwp_kpYt5NXEeTWA4HaqdDcnGAII66fnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538925034240-bjjc6eghsef323o1l2linc6hd5j0e0ho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
