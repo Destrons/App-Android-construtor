@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Aplicativo de construção para clientes"
 include(":app")
+

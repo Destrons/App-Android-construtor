@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
@@ -52,9 +53,21 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        val textView = findViewById<TextView>(R.id.txtcadastro)
+
+        // Evento de clique no TextView
+        textView.setOnClickListener {
+            // Redirecionar para a Formulariodecadastro
+            val intent = Intent(this, Formulariodecadastro::class.java)
+            startActivity(intent)
+        }
+
     }
 
+
     private fun login(view: View) {
+        // Ao acionar botão de login a barra de progresso fica visível
         val progressBar = binding.progressbar
         progressBar.visibility = View.VISIBLE
 
