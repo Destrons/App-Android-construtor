@@ -1,4 +1,6 @@
 <resources>
+
+    <!--strings de login-->
     <string name="app_name">Aplicativo de construção para clientes</string>
     <string name="logo_image">Logo-Image</string>
     <string name="hint_email">E-mail</string>
@@ -7,7 +9,26 @@
     <string name="txt_cadastro">Não possui conta? Cadastre-se aqui!</string>
     <string name="txt_bem_vindo_1">Bem Vindo(a)!</string>
     <string name="txt_bem_vindo_2">O Profissional Certo na Palma da Sua Mão</string>
+    <!--Strings da tela de Cadastro-->
+    <string name="txt_nomecadastro">Nome Completo</string>
+    <string name="txt_emailcadastro">E-mail</string>
+    <string name="txt_senhacadastro">Senha</string>
+    <string name="txt_confirmacadastro">Confirma Senha</string>
+
+    <!--Strings da tela de inicialização-->
     <string name="btn_contract">Contratos</string>
-    <string name="btn_message">Mensagens</string>
+    <string name="btn_message">Chat</string>
     <string name="btn_profile">Perfil</string>
+<<<<<<< Updated upstream
+=======
+    <string name="btn_cadastrar">Cadastrar</string>
+    <string name="btn_filters">Filtros</string>
+    <string name="btn_favorites">Favoritos</string>
+    <string name="btn_yrworks">Suas Obras</string>
+    <string name="btn_yrtimeline">Seu Cronograma</string>
+    <string name="btn_yrreport">Seu Relatorio</string>
+
+    <!---->
+
+>>>>>>> Stashed changes
 </resources>
