@@ -16,6 +16,15 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/icon_back"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/back"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
         android:id="@+id/logoimg"
         android:layout_width="175dp"
         android:layout_height="175dp"
@@ -42,7 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:text="Nome Completo"
+        android:layout_marginStart="25dp"
+        android:text="@string/txt_nomecadastro"
         android:textColor="@color/Chocolate"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/containerBase"
@@ -53,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_border"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:maxLines="1"
@@ -65,11 +76,13 @@
         android:id="@+id/Cadastraremailtxt"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="E-mail"
+        android:text="@string/txt_emailcadastro"
         app:layout_constraintTop_toBottomOf="@id/Cadastranome"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:textSize="20sp"
         android:textColor="@color/Chocolate"
+        app:layout_constraintStart_toStartOf="@+id/containerBase"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -78,6 +91,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_border"
         android:inputType="textEmailAddress"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:maxLines="1"
@@ -90,11 +104,13 @@
         android:id="@+id/Cadastrarsenhatxt"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Senha"
+        android:text="@string/txt_senhacadastro"
         app:layout_constraintTop_toBottomOf="@id/CadastraEmail"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:textSize="20sp"
         android:textColor="@color/Chocolate"
+        app:layout_constraintStart_toStartOf="@+id/containerBase"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -126,16 +142,19 @@
             android:maxLines="1"
             android:textSize="18sp"
             android:padding="8dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/Comfirmasenhatxt"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Confirma Senha"
+        android:text="@string/txt_confirmacadastro"
         app:layout_constraintTop_toBottomOf="@id/txtInputLayoutSenha"
         android:textSize="20sp"
+        android:layout_marginStart="25dp"
         android:textColor="@color/Chocolate"
+        app:layout_constraintStart_toStartOf="@+id/containerBase"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
