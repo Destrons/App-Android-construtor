@@ -19,8 +19,6 @@
     <string name="btn_contract">Contratos</string>
     <string name="btn_message">Chat</string>
     <string name="btn_profile">Perfil</string>
-<<<<<<< Updated upstream
-=======
     <string name="btn_cadastrar">Cadastrar</string>
     <string name="btn_filters">Filtros</string>
     <string name="btn_favorites">Favoritos</string>
@@ -29,6 +27,4 @@
     <string name="btn_yrreport">Seu Relatorio</string>
 
     <!---->
-
->>>>>>> Stashed changes
 </resources>

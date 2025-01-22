@@ -11,7 +11,7 @@
     <View
         android:id="@+id/containerTop"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:background="@drawable/curved_top_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/containerTop"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:src="@drawable/icons8_card_pio_64" />
+        android:src="@drawable/ic_menubar" />
 
     <!-- Número de Notificações -->
     <TextView
