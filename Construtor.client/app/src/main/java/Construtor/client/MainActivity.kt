@@ -1,89 +1,49 @@
-package Construtor.client
+package com.Construtor.client.ui.auth
 
-import Construtor.client.databinding.ActivityMainBinding
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.Construtor.client.databinding.ActivityLoginBinding
+import com.Construtor.client.ui.home.HomeActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.hide()
-        window.statusBarColor = Color.parseColor("#FFFFFF")
+        auth = FirebaseAuth.getInstance()
 
-        binding.bttLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
 
-            val email = binding.editEmail.text.toString()
-            val senha = binding.editSenha.text.toString()
-
-
-            when{
-                email.isEmpty() -> {
-                    binding.editEmail.error = "Preencha o E-mail"
-                }
-                senha.isEmpty() -> {
-                    binding.editSenha.error = "Preencha a Senha!"
-                }
-                !email.contains("gmail.com") -> {
-                    val snackbar = Snackbar.make(binding.root, "E-mail inválido", Snackbar.LENGTH_SHORT)
-                    snackbar.show()
-                }
-                senha.length <= 5 -> {
-                    val snackbar = Snackbar.make(binding.root, "A senha precisa ter pelo menos 6 caracteres!", Snackbar.LENGTH_SHORT)
-                    snackbar.show()
-                }
-                else -> {
-                    login(it)
-                }
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                loginUser(email, password)
+            } else {
+                Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             }
         }
 
-        val textView = findViewById<TextView>(R.id.txtcadastro)
-
-        // Evento de clique no TextView
-        textView.setOnClickListener {
-            // Redirecionar para a Formulariodecadastro
-            val intent = Intent(this, Formulariodecadastro::class.java)
-            startActivity(intent)
+        binding.btnGoToRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
-
     }
 
-
-    private fun login(view: View) {
-        // Ao acionar botão de login a barra de progresso fica visível
-        val progressBar = binding.progressbar
-        progressBar.visibility = View.VISIBLE
-
-        binding.bttLogin.isEnabled = false
-        binding.bttLogin.setTextColor(Color.parseColor("#FFFFFF"))
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            navegarTelaPrincipal()
-            val snackbar = Snackbar.make(binding.root, "Login efetuado com sucesso", Snackbar.LENGTH_SHORT)
-            snackbar.show()
-        }, 3000)
-    }
-
-    private fun navegarTelaPrincipal(){
-        val intent =  Intent(this, TelaPrincipal::class.java)
-        startActivity(intent)
-        finish()
+    private fun loginUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this, "Erro no login: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }

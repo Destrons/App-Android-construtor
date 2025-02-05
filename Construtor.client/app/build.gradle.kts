@@ -1,17 +1,20 @@
+@file:Suppress("DEPRECATION")
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     id("com.google.gms.google-services")
 }
 
 android {
     namespace = "Construtor.client"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "Construtor.client"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -40,6 +43,26 @@ android {
 }
 
 dependencies(function())
+dependencies {
+    implementation(libs.androidx.ui.android)
+}
+dependencies {
+        implementation(libs.androidx.runtime.android)
+        implementation(libs.firebase.auth.ktx)
+        implementation(libs.firebase.firestore.ktx)
+        implementation(libs.androidx.lifecycle.viewmodel.ktx)
+        implementation(libs.androidx.lifecycle.livedata.ktx)
+        implementation(libs.play.services.maps)
+        implementation(libs.play.services.location)
+        implementation(libs.androidx.navigation.fragment.ktx)
+        implementation(libs.androidx.navigation.ui.ktx)
+        implementation(libs.material)
+        implementation(libs.firebase.storage.ktx)
+        implementation(libs.firebase.messaging.ktx)
+        implementation(libs.google.webrtc)
+        implementation(libs.stripe.android)
+}
+
 
 fun Build_gradle.function(): DependencyHandlerScope.() -> Unit = {
     implementation(libs.androidx.core.ktx)
