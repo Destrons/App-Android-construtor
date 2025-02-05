@@ -1,4 +1,4 @@
-package com.Construtor.client.ui.mapa
+package Construtor.client.ui.mapa
 
 import android.content.Intent
 import android.os.Bundle

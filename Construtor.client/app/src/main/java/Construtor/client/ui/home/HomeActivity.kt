@@ -1,14 +1,16 @@
-package com.construtor.client.ui.home
+package com.Construtor.client.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.construtor.client.R
-import com.construtor.client.databinding.ActivityHomeBinding
-import com.construtor.client.ui.chat.ChatFragment
-import com.construtor.client.ui.cronograma.CronogramaFragment
-import com.construtor.client.ui.perfil.PerfilFragment
-import com.construtor.client.ui.solicitacao.SolicitacoesFragment
+import com.Construtor.client.R
+import com.Construtor.client.databinding.ActivityHomeBinding
+import com.Construtor.client.ui.chat.ChatFragment
+import com.Construtor.client.ui.cronograma.CronogramaFragment
+import com.Construtor.client.ui.perfil.PerfilFragment
+import com.Construtor.client.ui.solicitacao.SolicitacoesFragment
+import com.Construtor.client.ui.notifications.FirebaseTokenManager
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -16,6 +18,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseTokenManager.saveToken()
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
