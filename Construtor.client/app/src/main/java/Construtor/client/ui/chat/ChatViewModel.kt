@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.Construtor.client.model.Message
+import com.google.firebase.functions.FirebaseFunctions
 
 class ChatViewModel : ViewModel() {
 
@@ -28,5 +29,34 @@ class ChatViewModel : ViewModel() {
     fun sendMessage(chatId: String, destinatarioId: String, texto: String) {
         val message = Message(remetenteId = userId!!, destinatarioId = destinatarioId, mensagem = texto)
         db.collection("mensagens").document(chatId).collection("mensagens").add(message)
+    }
+
+    fun sendMessage(chatId: String, destinatarioId: String, texto: String) {
+        val message = Message(remetenteId = userId!!, destinatarioId = destinatarioId, mensagem = texto)
+
+        db.collection("mensagens").document(chatId).collection("mensagens").add(message)
+            .addOnSuccessListener {
+                enviarNotificacao(destinatarioId, "Nova Mensagem", "Você recebeu uma nova mensagem.")
+            }
+    }
+
+    private fun enviarNotificacao(userId: String, titulo: String, mensagem: String) {
+        db.collection("users").document(userId).get()
+            .addOnSuccessListener { document ->
+                val token = document.getString("fcmToken")
+                if (token != null) {
+                    val notificacao = hashMapOf(
+                        "to" to token,
+                        "notification" to mapOf(
+                            "title" to titulo,
+                            "body" to mensagem
+                        )
+                    )
+
+                    FirebaseFunctions.getInstance()
+                        .getHttpsCallable("sendNotification")
+                        .call(notificacao)
+                }
+            }
     }
 }

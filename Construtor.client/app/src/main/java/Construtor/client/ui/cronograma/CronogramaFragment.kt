@@ -1,4 +1,4 @@
-package com.Construtor.client.ui.cronograma
+package Construtor.client.ui.cronograma
 
 import android.os.Bundle
 import android.view.LayoutInflater
