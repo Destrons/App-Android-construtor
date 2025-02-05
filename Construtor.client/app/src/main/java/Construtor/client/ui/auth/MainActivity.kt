@@ -1,4 +1,4 @@
-package com.Construtor.client.ui.auth
+package Construtor.client.ui.auth
 
 import android.content.Intent
 import android.os.Bundle

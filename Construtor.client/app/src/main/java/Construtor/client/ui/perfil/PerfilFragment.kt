@@ -1,22 +1,22 @@
-package com.Construtor.client.ui.solicitacao
+package Construtor.client.ui.perfil
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.Construtor.client.databinding.FragmentSolicitacoesBinding
+import com.Construtor.client.databinding.FragmentPerfilBinding
 
-class SolicitacoesFragment : Fragment() {
+class PerfilFragment : Fragment() {
 
-    private var _binding: FragmentSolicitacoesBinding? = null
+    private var _binding: FragmentPerfilBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSolicitacoesBinding.inflate(inflater, container, false)
+        _binding = FragmentPerfilBinding.inflate(inflater, container, false)
         return binding.root
     }
 

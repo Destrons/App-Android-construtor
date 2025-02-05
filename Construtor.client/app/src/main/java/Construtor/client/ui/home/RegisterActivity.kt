@@ -1,12 +1,10 @@
-package com.construtor.client.ui.home
+package Construtor.client.ui.home
 
 
+import Construtor.client.ui.home.HomeActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.construtor.client.databinding.ActivityHomeBinding
-import com.construtor.client.ui.auth.LoginActivity
-import com.construtor.client.ui.solicitacao.NovaSolicitacaoActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {

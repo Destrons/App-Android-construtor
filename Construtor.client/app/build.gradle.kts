@@ -44,6 +44,9 @@ android {
 
 dependencies(function())
 dependencies {
+    implementation(libs.firebase.functions.ktx)
+}
+dependencies {
     implementation(libs.androidx.ui.android)
 }
 dependencies {
@@ -61,6 +64,7 @@ dependencies {
         implementation(libs.firebase.messaging.ktx)
         implementation(libs.google.webrtc)
         implementation(libs.stripe.android)
+        implementation(libs.firebase.messaging.ktx)
 }
 
 

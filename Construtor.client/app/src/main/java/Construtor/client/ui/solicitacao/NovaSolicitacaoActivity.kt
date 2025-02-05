@@ -1,4 +1,4 @@
-package com.Construtor.client.ui.solicitacao
+package Construtor.client.ui.solicitacao
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.Construtor.client.databinding.ActivityNovaSolicitacaoBinding
-import com.Construtor.client.ui.mapa.MapaActivity
+import Construtor.client.ui.mapa.MapaActivity
 
 class NovaSolicitacaoActivity : AppCompatActivity() {
 
