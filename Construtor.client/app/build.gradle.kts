@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "Construtor.client"
+    namespace = "construtorclient"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "Construtor.client"
+        applicationId = "construtorclient"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -65,6 +65,7 @@ dependencies {
         implementation(libs.google.webrtc)
         implementation(libs.stripe.android)
         implementation(libs.firebase.messaging.ktx)
+
 }
 
 

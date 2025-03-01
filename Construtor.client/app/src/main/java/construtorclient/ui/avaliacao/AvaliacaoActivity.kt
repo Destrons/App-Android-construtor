@@ -1,4 +1,4 @@
-package com.Construtor.client.ui.avaliacao
+package com.construtorclient.ui.avaliacao
 
 import android.os.Bundle
 import android.widget.RatingBar
@@ -6,8 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.Construtor.client.databinding.ActivityAvaliacaoBinding
-import com.Construtor.client.model.Avaliacao
+import com.construtorclient.databinding.ActivityAvaliacaoBinding
+import com.construtorclient.model.Avaliacao
 
 class AvaliacaoActivity : AppCompatActivity() {
 

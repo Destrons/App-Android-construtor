@@ -1,8 +1,8 @@
-package com.Construtor.client.recompensas
+package com.construtorclient.recompensas
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.Construtor.client.model.Recompensa
+import com.construtorclient.model.Recompensa
 
 object RecompensaManager {
 

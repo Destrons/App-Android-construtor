@@ -1,4 +1,4 @@
-package com.Construtor.client.ui.avaliacao
+package com.construtorclient.ui.avaliacao
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.Construtor.client.R
-import com.Construtor.client.model.Avaliacao
+import com.construtorclient.R
+import com.construtorclient.model.Avaliacao
 
 class AvaliacaoAdapter(private val avaliacoes: List<Avaliacao>) : RecyclerView.Adapter<AvaliacaoAdapter.AvaliacaoViewHolder>() {
 

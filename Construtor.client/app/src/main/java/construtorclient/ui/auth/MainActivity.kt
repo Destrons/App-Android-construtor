@@ -1,12 +1,12 @@
-package Construtor.client.ui.auth
+package com.construtorclient.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.Construtor.client.databinding.ActivityLoginBinding
-import com.Construtor.client.ui.home.HomeActivity
+import com.construtorclient.databinding.ActivityLoginBinding
+import com.construtorclient.ui.home.HomeActivity
 
 class MainActivity : AppCompatActivity() {
 

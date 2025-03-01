@@ -1,4 +1,4 @@
-package construtor.client.ui.theme
+package construtorclient.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

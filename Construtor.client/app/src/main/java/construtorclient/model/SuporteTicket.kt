@@ -1,4 +1,4 @@
-package com.Construtor.client.model
+package com.construtorclient.model
 
 data class SuporteTicket(
     val ticketId: String = "",
