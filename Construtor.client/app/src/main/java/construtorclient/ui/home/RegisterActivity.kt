@@ -1,11 +1,12 @@
-package Construtor.client.ui.home
+package construtorclient.ui.home
 
-
-import Construtor.client.ui.home.HomeActivity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import construtorclient.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -15,19 +16,39 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        auth = FirebaseAuth.getInstance()
+        if (auth.currentUser != null) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+            return
+        }
+
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
         binding.btnRegister.setOnClickListener {
-            val nome = binding.etNome.text.toString()
-            val email = binding.etEmail.text.toString()
+            val nome = binding.etNome.text.toString().trim()
+            val email = binding.etEmail.text.toString().trim()
             val senha = binding.etPassword.text.toString()
+            val confirmSenha = binding.etConfirmPassword.text.toString()
 
-            if (nome.isNotEmpty() && email.isNotEmpty() && senha.length >= 6) {
-                registerUser(nome, email, senha)
+            if (nome.isNotEmpty() && email.isNotEmpty() && senha.isNotEmpty() && confirmSenha.isNotEmpty()) {
+                if (senha.length >= 6) {
+                    if (senha == confirmSenha) {
+                        if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                            registerUser(nome, email, senha)
+                        } else {
+                            Toast.makeText(this, "E-mail inválido!", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this, "As senhas não conferem!", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this, "A senha precisa ter no mínimo 6 caracteres!", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Preencha todos os campos corretamente!", Toast.LENGTH_SHORT).show()
             }

@@ -1,4 +1,4 @@
-package Construtor.client.ui.solicitacao
+package construtorclient.ui.solicitacao
 
 import android.os.Bundle
 import android.view.LayoutInflater

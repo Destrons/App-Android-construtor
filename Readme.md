@@ -37,9 +37,15 @@ Configuração de filtro para mostrar quais tipos de trabalhos deseja executar.
 
 ## Favoritos ##
 
+<<<<<<< Updated upstream
 
 ## Chat ##
 
 
 ## Perfil ##
 
+=======
+## Chat ##
+
+## Perfil ##
+>>>>>>> Stashed changes

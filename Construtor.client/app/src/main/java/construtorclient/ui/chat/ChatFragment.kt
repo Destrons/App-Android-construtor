@@ -1,4 +1,4 @@
-package Construtor.client.ui.chat
+package construtorclient.ui.chat
 
 import android.os.Bundle
 import android.view.LayoutInflater

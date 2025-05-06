@@ -1,28 +1,37 @@
 package com.construtorclient.ui.auth
 
+import Construtor.client.ui.home.RegisterActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.Construtor.client.ui.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.construtorclient.databinding.ActivityLoginBinding
-import com.construtorclient.ui.home.HomeActivity
+import construtorclient.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
 
-        binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
+        // Verificar se o usuário já está logado
+        if (auth.currentUser != null) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+            return
+        }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.bttLogin.setOnClickListener {
+            val email = binding.editEmail.text.toString()
+            val password = binding.editSenha.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 loginUser(email, password)
@@ -31,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.btnGoToRegister.setOnClickListener {
+        binding.txtcadastro.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
     }

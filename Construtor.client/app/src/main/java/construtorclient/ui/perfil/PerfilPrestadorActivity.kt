@@ -1,4 +1,4 @@
-package com.Construtor.client.ui.perfil
+package construtorclient.ui.perfil
 
 import android.os.Bundle
 import android.widget.Toast

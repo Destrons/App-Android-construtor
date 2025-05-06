@@ -1,11 +1,13 @@
-package com.Construtor.client.ui.notifications
+package construtorclient.ui.notifications
 
+import android.annotation.SuppressLint
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
 
 object FirebaseTokenManager {
 
+    @SuppressLint("StaticFieldLeak")
     private val db = FirebaseFirestore.getInstance()
 
     fun saveToken() {

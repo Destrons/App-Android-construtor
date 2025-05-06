@@ -1,15 +1,15 @@
-package com.Construtor.client.ui.home
+package construtorclient.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.Construtor.client.R
-import com.Construtor.client.databinding.ActivityHomeBinding
-import com.Construtor.client.ui.chat.ChatFragment
-import com.Construtor.client.ui.cronograma.CronogramaFragment
-import com.Construtor.client.ui.perfil.PerfilFragment
-import com.Construtor.client.ui.solicitacao.SolicitacoesFragment
-import com.Construtor.client.ui.notifications.FirebaseTokenManager
+import construtorclient.R
+import construtorclient.databinding.ActivityHomeBinding
+import construtorclient.ui.chat.ChatFragment
+import construtorclient.ui.cronograma.CronogramaFragment
+import construtorclient.ui.perfil.PerfilFragment
+import construtorclient.ui.solicitacao.SolicitacoesFragment
+import construtorclient.ui.notifications.FirebaseTokenManager
 
 
 class HomeActivity : AppCompatActivity() {
