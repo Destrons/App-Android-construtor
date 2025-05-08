@@ -1,21 +1,152 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.home.HomeActivity">
 
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
+    <!-- CONTAINER SUPERIOR -->
+    <View
+        android:id="@+id/containerTop"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="200dp"
+        android:background="@drawable/curved_top_border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
+    <!-- ÍCONE DE NOTIFICAÇÃO -->
+    <ImageView
+        android:id="@+id/icon_bell"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_baseline_notifications_24"
+        app:layout_constraintTop_toTopOf="@id/containerTop"
+        app:layout_constraintEnd_toEndOf="@id/containerTop" />
+
+    <TextView
+        android:id="@+id/notification_count"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="@drawable/red_circle_background"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@id/icon_bell"
+        app:layout_constraintEnd_toEndOf="@id/icon_bell"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp" />
+
+    <!-- BOTOES DENTRO DO CONTAINER TOP (DIVIDIDOS EM 3 IGUAIS) -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSolicitarObra"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/bottom_nav_menu" />
-</LinearLayout>
+        android:text="Solicitar Obra"
+        android:background="@drawable/background_button_selector"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/icon_bell"
+        app:layout_constraintStart_toStartOf="@id/containerTop"
+        app:layout_constraintEnd_toStartOf="@id/btnAcompanharObra"
+        app:layout_constraintBottom_toBottomOf="@id/containerTop"
+        app:layout_constraintWidth_percent="0.33" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAcompanharObra"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Acompanhar Obra"
+        android:background="@drawable/background_button_selector"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/icon_bell"
+        app:layout_constraintStart_toEndOf="@id/btnSolicitarObra"
+        app:layout_constraintEnd_toStartOf="@id/btnRelatorioObras"
+        app:layout_constraintBottom_toBottomOf="@id/containerTop"
+        app:layout_constraintWidth_percent="0.34" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRelatorioObras"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Relatório de Obras"
+        android:background="@drawable/background_button_selector"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/icon_bell"
+        app:layout_constraintStart_toEndOf="@id/btnAcompanharObra"
+        app:layout_constraintEnd_toEndOf="@id/containerTop"
+        app:layout_constraintBottom_toBottomOf="@id/containerTop"
+        app:layout_constraintWidth_percent="0.33" />
+
+    <!-- CONTAINER INFERIOR -->
+    <View
+        android:id="@+id/containerBottom"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/curved_bottom_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 4 BOTOES INFERIORES -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContratoAtivo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Contrato Ativo"
+        android:background="@drawable/background_button_selector"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/containerBottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnFavoritos"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFavoritos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Favoritos"
+        android:background="@drawable/background_button_selector"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/containerBottom"
+        app:layout_constraintStart_toEndOf="@id/btnContratoAtivo"
+        app:layout_constraintEnd_toStartOf="@id/btnChat"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        android:background="@drawable/background_button_selector"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/containerBottom"
+        app:layout_constraintStart_toEndOf="@id/btnFavoritos"
+        app:layout_constraintEnd_toStartOf="@id/btnPerfil"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPerfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Perfil"
+        android:background="@drawable/background_button_selector"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/containerBottom"
+        app:layout_constraintStart_toEndOf="@id/btnChat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.25" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
